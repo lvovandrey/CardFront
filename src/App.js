@@ -1,7 +1,6 @@
 import './App.css';
 import React from 'react';
-import Header from './Header';
-import CardList from './CardList';
+import CardList from './components/CardList/CardList';
 import {
   BrowserRouter,
   Routes,
@@ -9,22 +8,24 @@ import {
 } from "react-router-dom";
 import Game from './components/Game/Game';
 import Info from './components/Info/Info';
+import CardsManagment from './components/CardsManagment/CardsManagment';
+import {Link} from "react-router-dom";
+import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
 
   return (
-    <div>
-    <div className="App">
+    <div className='app-wrapper'>
       <Header/>
-      <CardList/>
-    </div>
-    <div color='#FF0000'>
-      <Routes>
-        <Route path="game" element={<Game />} />
-        <Route path="info" element={<Info />} />
-      </Routes>
-    </div>
-
+      <Navbar/>
+      <div className="app-wrapper-content ">
+        <Routes>
+          <Route path="game" element={<Game />} />
+          <Route path="info" element={<Info />} />
+          <Route path="cardsmanagment" element={<CardsManagment />} />
+        </Routes>
+      </div>
     </div>
   );
 }
